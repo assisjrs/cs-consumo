@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Concrete - Controle do cafe.</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+    <body>
+        <div class="container">
+            <p>Echo: ?name= <span th:text="${name}"></span> </p>
+
+            <th:block th:include="fragments/header :: header"></th:block>
+        </div>
+    </body>
+</html>
