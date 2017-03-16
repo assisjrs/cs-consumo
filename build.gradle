@@ -65,6 +65,8 @@ dependencies {
 	//compile('org.springframework.boot:spring-boot-starter-security')
 	//compile('org.springframework.boot:spring-boot-starter-social-linkedin')
 
+    testCompile('work.assisjrs.seleniumtestcase:selenium-test-case:0.0.1-SNAPSHOT')
+
     compile('org.webjars:bootstrap:3.3.4')
     compile('org.webjars:jquery:2.1.4')
 }
