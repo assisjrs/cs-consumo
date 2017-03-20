@@ -46,6 +46,11 @@ dependencies {
     compile('org.flywaydb:flyway-core')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
+
+    //TODO explicar para o francisco
+    compile('org.webjars:angularjs:1.4.9')
+    compile('org.webjars:bootstrap:3.3.6')
+
     runtime('org.springframework.boot:spring-boot-devtools')
 
     runtime('com.h2database:h2')
@@ -67,6 +72,6 @@ dependencies {
 
     testCompile('work.assisjrs.seleniumtestcase:selenium-test-case:0.0.1-SNAPSHOT')
 
-    compile('org.webjars:bootstrap:3.3.4')
-    compile('org.webjars:jquery:2.1.4')
+    //compile('org.webjars:bootstrap:3.3.4')
+    //compile('org.webjars:jquery:2.1.4')
 }
