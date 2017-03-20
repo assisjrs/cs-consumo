@@ -10,8 +10,8 @@ import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=9990")
-@SeleniumTestCase(pageObject = TransacaoPage.class, url = "http://localhost:9990/")
+@SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=9999")
+@SeleniumTestCase(pageObject = TransacaoPage.class, url = "http://localhost:9999/")
 public class TransacaoPageTest {
 
     @Autowired
