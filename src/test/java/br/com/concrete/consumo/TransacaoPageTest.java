@@ -10,8 +10,8 @@ import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=8080")
-@SeleniumTestCase(pageObject = TransacaoPage.class)
+@SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=9990")
+@SeleniumTestCase(pageObject = TransacaoPage.class, url = "http://localhost:9990/")
 public class TransacaoPageTest {
 
     @Autowired
@@ -19,7 +19,8 @@ public class TransacaoPageTest {
 
     @Test
 	public void clicarNoLinkHome() {
+        page.home();
         page.assertThat()
-            .nameIs("home");
+            .tituloIs("Lista de Usuarios");
 	}
 }

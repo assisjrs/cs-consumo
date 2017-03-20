@@ -12,8 +12,7 @@ public class TransacaoPageAssert extends AbstractAssert<TransacaoPageAssert, Tra
         super(transacaoPage, TransacaoPageAssert.class);
     }
 
-    public void nameIs(String home) {
-        actual.home();
-        assertThat(actual.name.getText()).contains(home);
+    public void tituloIs(String titulo) {
+        assertThat(actual.titulo.getText()).isEqualTo(titulo);
     }
 }

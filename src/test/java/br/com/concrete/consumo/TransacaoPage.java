@@ -14,8 +14,8 @@ public class TransacaoPage {
     @FindBy(linkText = "Home")
     private WebElement home;
 
-    @FindBy(id = "name")
-    WebElement name;
+    @FindBy(id = "titulo")
+    WebElement titulo;
 
     public TransacaoPage(WebDriver driver){
         this.driver = driver;
