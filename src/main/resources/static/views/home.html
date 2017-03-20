@@ -5,12 +5,14 @@
         <tr>
             <th>Nome</th>
             <th>Total</th>
+            <th>Acoes</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="consumidor in listaConsumo">
             <td>{{consumidor.usuario}}</td>
             <td>{{consumidor.valor}}</td>
+            <td>Alterar | Deletar</td>
         </tr>
         </tbody>
     </table>

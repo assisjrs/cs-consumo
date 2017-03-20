@@ -47,7 +47,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
 
-    //TODO explicar para o francisco
     compile('org.webjars:angularjs:1.4.9')
     compile('org.webjars:bootstrap:3.3.6')
 
@@ -66,12 +65,9 @@ dependencies {
 
     //compile ('org.slf4j:slf4j-api:1.7.21')
     //compile ('org.springframework.boot:spring-boot-starter-parent')
-
 	//compile('org.springframework.boot:spring-boot-starter-security')
 	//compile('org.springframework.boot:spring-boot-starter-social-linkedin')
 
     testCompile('work.assisjrs.seleniumtestcase:selenium-test-case:0.0.1-SNAPSHOT')
 
-    //compile('org.webjars:bootstrap:3.3.4')
-    //compile('org.webjars:jquery:2.1.4')
 }
