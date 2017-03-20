@@ -25,6 +25,7 @@ public class HomeController {
             t.setId(Long.valueOf(i));
             t.setUsuario("Usuario" + i);
             t.setValor(Long.valueOf(i*10));
+
             list.add(t);
         }
 
