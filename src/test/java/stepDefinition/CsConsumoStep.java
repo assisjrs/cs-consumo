@@ -9,10 +9,6 @@ import cucumber.api.java.pt.Quando;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,8 +21,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = DEFINED_PORT)
-@DatabaseSetup("CsConsumoStep.xml")
 @ContextConfiguration(classes = Config.class)
+@DatabaseSetup("CsConsumoStep.xml")
 @Transactional
 @SeleniumTestCase(url = "http://localhost:9999/",
         pageObject = TransacaoPage.class)
