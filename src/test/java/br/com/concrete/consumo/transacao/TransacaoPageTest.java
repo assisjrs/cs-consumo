@@ -1,4 +1,4 @@
-package br.com.concrete.consumo;
+package br.com.concrete.consumo.transacao;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

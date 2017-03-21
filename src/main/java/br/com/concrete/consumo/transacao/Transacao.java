@@ -1,11 +1,10 @@
-package br.com.concrete.consumo;
+package br.com.concrete.consumo.transacao;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Created by assis on 14/03/17.
@@ -20,7 +19,6 @@ public class Transacao {
     private String usuario;
 
     @NotNull
-    @Temporal(TemporalType.DATE)
     private LocalDate data;
 
     @NotNull

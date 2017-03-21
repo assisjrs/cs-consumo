@@ -1,4 +1,4 @@
-package br.com.concrete.consumo;
+package br.com.concrete.consumo.transacao;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
