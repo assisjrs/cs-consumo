@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ public class Transacao {
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    private Date data;
+    private LocalDate data;
 
     @NotNull
     @Column(scale = 5, precision = 0)
@@ -42,11 +43,11 @@ public class Transacao {
         this.usuario = usuario;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
