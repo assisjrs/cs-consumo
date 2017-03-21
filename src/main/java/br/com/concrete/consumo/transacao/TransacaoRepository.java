@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,5 +14,5 @@ import java.util.List;
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
 
     @Query("select t from Transacao t where t.data BETWEEN :de AND :ate")
-    List<Transacao> transacaoDoMes(@Param("de") LocalDate de, @Param("ate") LocalDate ate);
+    List<Transacao> transacaoDoMes(@Param("de") Date de, @Param("ate") Date ate);
 }

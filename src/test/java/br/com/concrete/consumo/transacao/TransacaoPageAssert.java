@@ -1,6 +1,7 @@
 package br.com.concrete.consumo.transacao;
 
 import org.assertj.core.api.AbstractAssert;
+import org.junit.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,4 +16,10 @@ public class TransacaoPageAssert extends AbstractAssert<TransacaoPageAssert, Tra
     public void tituloIs(String titulo) {
         assertThat(actual.titulo.getText()).isEqualTo(titulo);
     }
+
+    public void UserIs(String usuario) {
+        Assert.assertTrue(actual.;
+    }
+
+
 }

@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Date;
+
 
 /**
  * Created by assis on 14/03/17.
@@ -19,11 +21,12 @@ public class Transacao {
     private String usuario;
 
     @NotNull
-    private LocalDate data;
+    @Temporal(TemporalType.DATE)
+    private Date data;
 
     @NotNull
-    @Column(scale = 5, precision = 0)
-    private Long valor;
+    @Column(scale = 5, precision = 2)
+    private Double valor;
 
     public Long getId() {
         return id;
@@ -41,19 +44,19 @@ public class Transacao {
         this.usuario = usuario;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public Long getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Long valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.time.YearMonth;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,8 +23,11 @@ public class TransacaoController {
 
     @RequestMapping(value = "consumo/lista", method = RequestMethod.GET)
     public List<Transacao> consumidores()
-    {LocalDate de = LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 1);
-        LocalDate ate = LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 31);
+    {
+        Date de = new Date();
+                //LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 1).;
+        Date ate = new Date();
+                //LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 31);
         return transacaoRepository.transacaoDoMes(de, ate);
     }
 }
