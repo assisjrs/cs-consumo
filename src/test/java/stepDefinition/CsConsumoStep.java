@@ -1,32 +1,37 @@
 package stepDefinition;
 
+import br.com.concrete.consumo.Config;
 import br.com.concrete.consumo.transacao.TransacaoPage;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
-
-import javax.annotation.security.RunAs;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 /**
  * Created by Diego Malafaia on 21/03/2017.
  */
-
 @RunWith(SpringRunner.class)
-@SeleniumTestCase(pageObject = TransacaoPage.class, url = "http://localhost:9999", webDriver = ChromeDriver.class)
-@SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=9999")
-@DatabaseSetup("CsConsumoStep.xml")
+@SpringBootTest(webEnvironment = DEFINED_PORT)
+//@DatabaseSetup("CsConsumoStep.xml")
+@ContextConfiguration(classes = Config.class)
+@Transactional
+@SeleniumTestCase(url = "http://localhost:9999/",
+        pageObject = TransacaoPage.class)
 public class CsConsumoStep {
     @Autowired
-    private TransacaoPage page;
+    private TransacaoPage transacaoPage;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
@@ -35,12 +40,12 @@ public class CsConsumoStep {
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario(){
-        page.home();
+        transacaoPage.home();
     }
 
     @Então("^verifico que o \"([^\"]*)\" do usuario esta correto$")
     public void verificoQueODoUsuarioEstaCorreto(String nome) {
-        page.assertThat().UserIs(0, nome);
+        transacaoPage.assertThat().UserIs(0, nome);
     }
 
 
