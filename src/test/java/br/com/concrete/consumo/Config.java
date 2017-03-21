@@ -2,6 +2,7 @@ package br.com.concrete.consumo;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,7 +17,7 @@ import java.sql.SQLException;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("stepDefinition.*")
+@ComponentScan(basePackages = {"stepDefinition.*", "br.com.concrete.consumo"})
 public class Config {
     @Bean(name = "dbUnitDatabaseConnection")
     public DataSource dbUnitDatabaseConnection() throws SQLException {
