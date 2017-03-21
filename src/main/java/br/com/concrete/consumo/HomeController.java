@@ -1,5 +1,6 @@
 package br.com.concrete.consumo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +14,17 @@ import java.util.List;
  */
 @RestController
 public class HomeController {
+
+    @Autowired
+    private TransacaoService transacaoservice;
+
     @RequestMapping(value = "consumo/lista", method = RequestMethod.GET)
     public List<Transacao> consumidores()
     {
+        
+        //final List<Transacao> list =
 
-        final List<Transacao> list = new ArrayList<>();
-
-        for (int i = 0; i < 10;  i++){
+        /*for (int i = 0; i < 10;  i++){
             Transacao t = new Transacao();
             t.setData(new Date());
             t.setId(Long.valueOf(i));
@@ -27,8 +32,8 @@ public class HomeController {
             t.setValor(Long.valueOf(i*10));
 
             list.add(t);
-        }
+        }*/
 
-        return list;
+        return transacaoservice.findAll();
     }
 }
