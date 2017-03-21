@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 /**
  * Created by assis on 16/03/17.
  */
@@ -17,8 +19,8 @@ public class TransacaoPage {
     @FindBy(id = "titulo")
     WebElement titulo;
 
-    @FindBy(id="listaDeUsuarios")
-    WebElement listaDeUsuarios;
+    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tr")
+    List<WebElement> listaDeUsuarios;
 
     public TransacaoPage(WebDriver driver){
         this.driver = driver;
