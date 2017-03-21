@@ -53,6 +53,8 @@ dependencies {
     runtime('org.springframework.boot:spring-boot-devtools')
 
     runtime('com.h2database:h2')
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     testCompile('org.seleniumhq.selenium:selenium-java:2.53.1')
