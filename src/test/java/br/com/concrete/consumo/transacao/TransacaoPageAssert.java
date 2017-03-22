@@ -21,7 +21,8 @@ public class TransacaoPageAssert extends AbstractAssert<TransacaoPageAssert, Tra
     public void UserIs(Integer posicao, String usuario) {
         WebElement tr = actual.listaDeUsuarios.get(posicao);
         String text = tr.getText();
-        Assert.assertEquals(text, usuario);
+        assertThat(text).isEqualTo(usuario);
+        //Assert.assertEquals(text, usuario);
     }
 
 
