@@ -1,8 +1,7 @@
 package stepDefinition;
 
-import config.Config;
-import pageObjects.ConsumoCsPage;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import config.Config;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
@@ -12,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import pageObjects.ConsumoCsPage;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
@@ -28,7 +28,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
         pageObject = ConsumoCsPage.class)
 public class CsConsumoStep {
     @Autowired
-    private ConsumoCsPage transacaoPage;
+    private ConsumoCsPage page;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
@@ -37,12 +37,17 @@ public class CsConsumoStep {
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario(){
-        transacaoPage.home();
+        page.home();
     }
 
+    @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")
+    public void verificoQueOEOEstãoPresentes(String nome, Double valor) throws Throwable {
+        Thread.sleep(1000);
 
-    @Então("^verifico que o \"([^\"]*)\" está sendo exibido na (\\d+) correta$")
-    public void verificoQueOEstáSendoExibidoNaCorreta(String nome, int posicao) throws Throwable {
-                transacaoPage.assertThat().UserIs(posicao, nome);
+        page.assertThat()
+            .userFound(nome);
+
+        page.assertThat()
+            .valueFound(valor);
     }
 }

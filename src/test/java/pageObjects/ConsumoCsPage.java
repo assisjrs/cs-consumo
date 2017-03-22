@@ -19,8 +19,11 @@ public class ConsumoCsPage {
     @FindBy(id = "titulo")
     WebElement titulo;
 
-    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr")
-    List<WebElement> listaDeUsuarios;
+    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr[*]/td[1]")
+    List<WebElement> listaDeNomes;
+
+    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr[*]/td[2]")
+    List<WebElement> listaDeValores;
 
     public ConsumoCsPage(WebDriver driver){
         this.driver = driver;

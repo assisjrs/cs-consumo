@@ -14,16 +14,33 @@ public class ConsumoCsPageAssert extends AbstractAssert<ConsumoCsPageAssert, Con
         super(consumoCsPage, ConsumoCsPageAssert.class);
     }
 
-    public void tituloIs(String titulo) {
-        assertThat(actual.titulo.getText()).isEqualTo(titulo);
+    public void userFound(String nome) throws Exception {
+        boolean achou = false;
+        for (WebElement tr: actual.listaDeNomes) {
+            String text = tr.getText();
+
+            if(text.contains(nome))
+            {
+                achou = true;
+                break;
+            }
+        }
+
+        assertThat(achou).isTrue();
     }
 
-    public void UserIs(Integer posicao, String usuario) throws Exception {
-        Thread.sleep(1000);
-        WebElement tr = actual.listaDeUsuarios.get(posicao);
-        String text = tr.getText();
-        assertThat(text).contains(usuario);
+    public void valueFound(Double valor) {
+        boolean achou = false;
+        for (WebElement tr: actual.listaDeValores) {
+            String text = tr.getText();
+
+            if(Double.parseDouble(text) == valor)
+            {
+                achou = true;
+                break;
+            }
+        }
+
+        assertThat(achou).isTrue();
     }
-
-
 }

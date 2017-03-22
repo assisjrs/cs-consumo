@@ -6,11 +6,11 @@
     Esquema do Cenario:Verificar se o sistema esta exibindo os nomes dos usuarios
       Dado que esteja na pagina principal
       Quando eu acesso a pagina de listagem de usuario
-      Então verifico que o "<nome>" está sendo exibido na <posicao> correta
+      Então verifico que o "<nome>" e o <valor> estão presentes
 
 
-      Exemplos: nome, posicao
+      Exemplos: nome, valor
 
-        |nome  | posicao |
-        |João  | 0       |
-        |Maria | 1       |
+        |nome  | valor  |
+        |João  | 30     |
+        |Maria | 70     |
