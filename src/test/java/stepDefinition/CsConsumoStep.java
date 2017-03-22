@@ -41,13 +41,8 @@ public class CsConsumoStep {
     }
 
     @Então("^verifico que o \"([^\"]*)\" do usuario esta correto$")
-    public void verificoQueODoUsuarioEstaCorreto(String nome) {
+    public void verificoQueODoUsuarioEstaCorreto(String nome) throws Exception{
         transacaoPage.assertThat().UserIs(0, nome);
     }
 
-
-    @Então("^verifico que o nome do usuario esta correto$")
-    public void verificoQueONomeDoUsuarioEstaCorreto(){
-
-    }
 }

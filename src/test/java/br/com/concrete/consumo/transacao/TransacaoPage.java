@@ -19,7 +19,7 @@ public class TransacaoPage {
     @FindBy(id = "titulo")
     WebElement titulo;
 
-    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tr")
+    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr")
     List<WebElement> listaDeUsuarios;
 
     public TransacaoPage(WebDriver driver){

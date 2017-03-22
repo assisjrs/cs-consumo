@@ -24,10 +24,6 @@ public class TransacaoController {
     @RequestMapping(value = "consumo/lista", method = RequestMethod.GET)
     public List<Transacao> consumidores()
     {
-        Date de = new Date();
-                //LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 1).;
-        Date ate = new Date();
-                //LocalDate.of(Year.now().getValue(), Month.of(YearMonth.now().getMonthValue()).getValue(), 31);
-        return transacaoRepository.transacaoDoMes(de, ate);
+        return transacaoRepository.findAll();
     }
 }
