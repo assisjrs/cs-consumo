@@ -40,9 +40,9 @@ public class CsConsumoStep {
         transacaoPage.home();
     }
 
-    @Então("^verifico que o \"([^\"]*)\" do usuario esta correto$")
-    public void verificoQueODoUsuarioEstaCorreto(String nome) throws Exception{
-        transacaoPage.assertThat().UserIs(0, nome);
-    }
 
+    @Então("^verifico que o \"([^\"]*)\" está sendo exibido na (\\d+) correta$")
+    public void verificoQueOEstáSendoExibidoNaCorreta(String nome, int posicao) throws Throwable {
+                transacaoPage.assertThat().UserIs(posicao, nome);
+    }
 }
