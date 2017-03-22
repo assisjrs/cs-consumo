@@ -1,7 +1,6 @@
-package br.com.concrete.consumo.transacao;
+package pageObjects;
 
 import org.assertj.core.api.AbstractAssert;
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,9 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by assis on 17/03/17.
  */
-public class TransacaoPageAssert extends AbstractAssert<TransacaoPageAssert, TransacaoPage> {
-    public TransacaoPageAssert(TransacaoPage transacaoPage) {
-        super(transacaoPage, TransacaoPageAssert.class);
+
+public class ConsumoCsPageAssert extends AbstractAssert<ConsumoCsPageAssert, ConsumoCsPage> {
+    public ConsumoCsPageAssert(ConsumoCsPage consumoCsPage) {
+        super(consumoCsPage, ConsumoCsPageAssert.class);
     }
 
     public void tituloIs(String titulo) {
@@ -23,7 +23,6 @@ public class TransacaoPageAssert extends AbstractAssert<TransacaoPageAssert, Tra
         WebElement tr = actual.listaDeUsuarios.get(posicao);
         String text = tr.getText();
         assertThat(text).contains(usuario);
-        //Assert.assertEquals(text, usuario);
     }
 
 

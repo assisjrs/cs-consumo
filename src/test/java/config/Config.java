@@ -1,4 +1,4 @@
-package br.com.concrete.consumo;
+package config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;

@@ -1,4 +1,4 @@
-package br.com.concrete.consumo.transacao;
+package pageObjects;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,11 +11,11 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = DEFINED_PORT, value = "server.port=9999")
-@SeleniumTestCase(pageObject = TransacaoPage.class, url = "http://localhost:9999/")
-public class TransacaoPageTest {
+@SeleniumTestCase(pageObject = ConsumoCsPage.class, url = "http://localhost:9999/")
+public class ConsumoCsPageTest {
 
     @Autowired
-    public TransacaoPage page;
+    public ConsumoCsPage page;
 
     @Test
 	public void clicarNoLinkHome() {

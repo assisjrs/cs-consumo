@@ -1,4 +1,4 @@
-package br.com.concrete.consumo.transacao;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by assis on 16/03/17.
  */
-public class TransacaoPage {
+public class ConsumoCsPage {
 
     private WebDriver driver;
 
@@ -22,7 +22,7 @@ public class TransacaoPage {
     @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr")
     List<WebElement> listaDeUsuarios;
 
-    public TransacaoPage(WebDriver driver){
+    public ConsumoCsPage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -30,7 +30,7 @@ public class TransacaoPage {
         home.click();
     }
 
-    public TransacaoPageAssert assertThat() {
-        return new TransacaoPageAssert(this);
+    public ConsumoCsPageAssert assertThat() {
+        return new ConsumoCsPageAssert(this);
     }
 }

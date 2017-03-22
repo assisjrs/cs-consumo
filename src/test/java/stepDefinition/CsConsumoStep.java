@@ -1,7 +1,7 @@
 package stepDefinition;
 
-import br.com.concrete.consumo.Config;
-import br.com.concrete.consumo.transacao.TransacaoPage;
+import config.Config;
+import pageObjects.ConsumoCsPage;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
@@ -22,13 +22,13 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = DEFINED_PORT)
 @ContextConfiguration(classes = Config.class)
-@DatabaseSetup("CsConsumoStep.xml")
+@DatabaseSetup("datasets/CsConsumoStep.xml")
 @Transactional
 @SeleniumTestCase(url = "http://localhost:9999/",
-        pageObject = TransacaoPage.class)
+        pageObject = ConsumoCsPage.class)
 public class CsConsumoStep {
     @Autowired
-    private TransacaoPage transacaoPage;
+    private ConsumoCsPage transacaoPage;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
