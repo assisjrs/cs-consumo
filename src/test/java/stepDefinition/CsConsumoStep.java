@@ -2,11 +2,13 @@ package stepDefinition;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import config.Config;
+import config.Utils;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,11 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 import pageObjects.ConsumoCsPage;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
+import javax.rmi.CORBA.Util;
+
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 /**
  * Created by Diego Malafaia on 21/03/2017.
  */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = DEFINED_PORT)
 @ContextConfiguration(classes = Config.class)
@@ -30,6 +35,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public class CsConsumoStep {
     @Autowired
     private ConsumoCsPage page;
+
+    @Autowired
+    private WebDriver driver;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
@@ -42,6 +50,7 @@ public class CsConsumoStep {
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario() {
         page.home();
+        Utils.captureScreenshot(driver, "Pagina home");
     }
 
     @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")
