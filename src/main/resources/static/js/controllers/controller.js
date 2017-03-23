@@ -7,7 +7,7 @@ app.controller('homeController', function($scope, $http) {
 
 
 
-    $http.get('consumo/lista')
+    $http.get('lista')
         .success(function(lista){
             $scope.listaConsumo = lista;
         })

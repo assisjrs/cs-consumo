@@ -16,7 +16,7 @@ public class TransacaoController {
     @Autowired
     private TransacaoRepository transacaoRepository;
 
-    @RequestMapping(value = "consumo/lista", method = RequestMethod.GET)
+    @RequestMapping(value = "lista", method = RequestMethod.GET)
     public List<Transacao> lista()
     {
         return transacaoRepository.findAll();
