@@ -15,19 +15,19 @@ public class ConsumoCsPageAssert extends AbstractAssert<ConsumoCsPageAssert, Con
     }
 
     public void userFound(String nome) throws Exception {
-        boolean achou = false;
-        for (WebElement tr: actual.listaDeNomes) {
-            String text = tr.getText();
-
-            if(text.contains(nome))
-            {
-                achou = true;
-                break;
-            }
-        }
+        boolean achou = isAchou(nome);
 
         assertThat(achou).isTrue();
     }
+
+
+
+    public void userNotFound(String nome) throws Exception {
+        boolean achou = isAchou(nome);
+
+        assertThat(achou).isFalse();
+    }
+
 
     public void valueFound(Double valor) {
         boolean achou = false;
@@ -42,5 +42,19 @@ public class ConsumoCsPageAssert extends AbstractAssert<ConsumoCsPageAssert, Con
         }
 
         assertThat(achou).isTrue();
+    }
+
+    private boolean isAchou(String nome) {
+        boolean achou = false;
+        for (WebElement tr: actual.listaDeNomes) {
+            String text = tr.getText();
+
+            if(text.contains(nome))
+            {
+                achou = true;
+                break;
+            }
+        }
+        return achou;
     }
 }

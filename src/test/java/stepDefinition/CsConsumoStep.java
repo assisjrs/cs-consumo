@@ -32,8 +32,11 @@ public class CsConsumoStep {
     private ConsumoCsPage page;
 
     @Dado("^que esteja na pagina principal$")
-    public void queEuEstejaNaPaginaPrincipalDoSistema() throws InterruptedException {
-        Thread.sleep(5000);
+    public void queEuEstejaNaPaginaPrincipalDoSistema() {
+    }
+
+    @Dado("^que o funcionario não possua debitos$")
+    public void queOFuncionarioNãoPossuaDebitos(){
     }
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
@@ -50,6 +53,13 @@ public class CsConsumoStep {
 
         page.assertThat()
             .valueFound(valor);
+    }
+
+    @Então("^eu verifico que este funcionario não está sendo exibido\\.$")
+    public void euVerificoQueEsteFuncionarioNãoEstáSendoExibido() throws Exception{
+        Thread.sleep(300);
+        page.assertThat()
+                .userNotFound("Francisco");
     }
 
     @Test
