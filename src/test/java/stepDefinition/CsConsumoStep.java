@@ -17,8 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import pageObjects.ConsumoCsPage;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
-import javax.rmi.CORBA.Util;
-
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 /**
@@ -49,8 +47,7 @@ public class CsConsumoStep {
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario() {
-        page.lista();
-        Utils.captureScreenshot(driver, "Pagina home");
+        page.clicarEmMarco();
     }
 
     @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")
@@ -62,13 +59,17 @@ public class CsConsumoStep {
 
         page.assertThat()
             .valueFound(valor);
+
+        Utils.captureScreenshot(driver, "Pagina home");
     }
 
     @Então("^eu verifico que este funcionario não está sendo exibido\\.$")
     public void euVerificoQueEsteFuncionarioNãoEstáSendoExibido() throws Exception{
         Thread.sleep(300);
         page.assertThat()
-                .userNotFound("Francisco");
+            .userNotFound("Francisco");
+
+        Utils.captureScreenshot(driver, "Pagina home");
     }
 
     @Test

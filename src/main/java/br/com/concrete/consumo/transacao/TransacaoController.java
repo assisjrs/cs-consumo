@@ -2,6 +2,7 @@ package br.com.concrete.consumo.transacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class TransacaoController {
     private TransacaoRepository transacaoRepository;
 
     @RequestMapping(value = "lista/{ano}/{mes}/", method = RequestMethod.GET)
-    public List<Transacao> lista(@Param("ano") Integer ano, @Param("mes") Integer mes)
+    public List<Transacao> lista(@PathVariable("ano") Integer ano, @PathVariable("mes") Integer mes)
     {
         return transacaoRepository.findAll();
     }

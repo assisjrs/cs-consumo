@@ -13,8 +13,8 @@ public class ConsumoCsPage {
 
     private WebDriver driver;
 
-    @FindBy(linkText = "Lista")
-    private WebElement home;
+    @FindBy(id = "button_2")
+    private WebElement buttonMarco;
 
     @FindBy(id = "titulo")
     WebElement titulo;
@@ -29,8 +29,8 @@ public class ConsumoCsPage {
         this.driver = driver;
     }
 
-    public void lista(){
-        home.click();
+    public void clicarEmMarco(){
+        buttonMarco.click();
     }
 
     public ConsumoCsPageAssert assertThat() {
