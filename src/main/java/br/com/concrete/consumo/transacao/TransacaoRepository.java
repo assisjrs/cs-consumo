@@ -13,6 +13,6 @@ import java.util.List;
  */
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
 
-    @Query("select t from Transacao t where t.data BETWEEN :de AND :ate")
+    @Query(".select t from Transacao t where t.data BETWEEN :de AND :ate")
     List<Transacao> transacaoDoMes(@Param("de") Date de, @Param("ate") Date ate);
 }
