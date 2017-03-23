@@ -1,8 +1,7 @@
 package stepDefinition;
 
-import br.com.concrete.consumo.Config;
-import br.com.concrete.consumo.transacao.TransacaoPage;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import config.Config;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
@@ -12,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import pageObjects.ConsumoCsPage;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
@@ -22,13 +22,13 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = DEFINED_PORT)
 @ContextConfiguration(classes = Config.class)
-@DatabaseSetup("CsConsumoStep.xml")
+@DatabaseSetup("datasets/CsConsumoStep.xml")
 @Transactional
 @SeleniumTestCase(url = "http://localhost:9999/",
-        pageObject = TransacaoPage.class)
+        pageObject = ConsumoCsPage.class)
 public class CsConsumoStep {
     @Autowired
-    private TransacaoPage transacaoPage;
+    private ConsumoCsPage page;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
@@ -37,17 +37,17 @@ public class CsConsumoStep {
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario(){
-        transacaoPage.home();
+        page.home();
     }
 
-    @Então("^verifico que o \"([^\"]*)\" do usuario esta correto$")
-    public void verificoQueODoUsuarioEstaCorreto(String nome) {
-        transacaoPage.assertThat().UserIs(0, nome);
-    }
+    @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")
+    public void verificoQueOEOEstãoPresentes(String nome, Double valor) throws Throwable {
+        Thread.sleep(1000);
 
+        page.assertThat()
+            .userFound(nome);
 
-    @Então("^verifico que o nome do usuario esta correto$")
-    public void verificoQueONomeDoUsuarioEstaCorreto(){
-
+        page.assertThat()
+            .valueFound(valor);
     }
 }

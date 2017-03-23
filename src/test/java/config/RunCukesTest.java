@@ -1,4 +1,4 @@
-package br.com.concrete.consumo;
+package config;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber"},
         glue = "stepDefinition",
-        features = "src/test/resources/features",
+        features = "src/test/java/features",
         snippets = SnippetType.CAMELCASE,
         strict = true)
 public class RunCukesTest {}
