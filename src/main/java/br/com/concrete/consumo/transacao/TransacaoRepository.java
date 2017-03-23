@@ -11,7 +11,4 @@ import java.util.List;
  * Created by gustavooliveira on 21/03/17.
  */
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
-
-    @Query(".select t from Transacao t where t.data BETWEEN :de AND :ate")
-    List<Transacao> transacaoDoMes(@Param("de") Date de, @Param("ate") Date ate);
 }

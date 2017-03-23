@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import pageObjects.ConsumoCsPage;
+import pageObjects.ConsumoCsRestAssert;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
@@ -29,6 +30,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public class CsConsumoStep {
     @Autowired
     private ConsumoCsPage page;
+
+    @Autowired
+    private ConsumoCsRestAssert restAssert;
 
     @Dado("^que esteja na pagina principal$")
     public void queEuEstejaNaPaginaPrincipalDoSistema() {
@@ -49,5 +53,7 @@ public class CsConsumoStep {
 
         page.assertThat()
             .valueFound(valor);
+
+        restAssert.assertThat().jsonOk();
     }
 }

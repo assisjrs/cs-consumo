@@ -47,6 +47,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
 
+    compile group: 'com.jayway.jsonpath', name: 'json-path-parent', version: '0.8.0'
+
     compile('org.webjars:angularjs:1.4.9')
     compile('org.webjars:bootstrap:3.3.6')
 

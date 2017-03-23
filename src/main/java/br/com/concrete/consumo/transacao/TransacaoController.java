@@ -17,7 +17,7 @@ public class TransacaoController {
     private TransacaoRepository transacaoRepository;
 
     @RequestMapping(value = "consumo/lista", method = RequestMethod.GET)
-    public List<Transacao> consumidores()
+    public List<Transacao> lista()
     {
         return transacaoRepository.findAll();
     }
