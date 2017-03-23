@@ -17,10 +17,9 @@ public class TransacaoController {
     @Autowired
     private TransacaoRepository transacaoRepository;
 
-    @RequestMapping(value = "lista", method = RequestMethod.GET)
-    public List<Transacao> lista(@Param("ano") int ano, @Param("mes") int mes)
+    @RequestMapping(value = "lista/{ano}/{mes}/", method = RequestMethod.GET)
+    public List<Transacao> lista(@Param("ano") Integer ano, @Param("mes") Integer mes)
     {
-
         return transacaoRepository.findAll();
     }
 }

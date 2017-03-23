@@ -41,7 +41,7 @@ public class CsConsumoStep {
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario() {
-        page.home();
+        page.lista();
     }
 
     @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")

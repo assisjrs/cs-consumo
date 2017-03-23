@@ -1,14 +1,10 @@
-var app = angular.module('consumoCs', ['ngRoute','ngResource']);
+var app = angular.module('consumo', ['ngRoute','ngResource']);
 
 app.config(function($routeProvider){
 
     $routeProvider
-        .when('/produtos',{
-            templateUrl: '/views/produtos.html',
-            controller: 'produtosController'
-        })
-        .when('/home',{
-            templateUrl: '/views/home.html',
-            controller: 'homeController'})
+        .when('/',{
+            templateUrl: '/views/lista.html',
+            controller: 'listaController'})
         .otherwise( { redirectTo: '/'});
 });

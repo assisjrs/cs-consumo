@@ -13,7 +13,7 @@ public class ConsumoCsPage {
 
     private WebDriver driver;
 
-    @FindBy(linkText = "Home")
+    @FindBy(linkText = "Lista")
     private WebElement home;
 
     @FindBy(id = "titulo")
@@ -29,7 +29,7 @@ public class ConsumoCsPage {
         this.driver = driver;
     }
 
-    public void home(){
+    public void lista(){
         home.click();
     }
 
