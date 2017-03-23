@@ -22,7 +22,7 @@ public class ConsumoCsPage {
     @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr[*]/td[1]")
     List<WebElement> listaDeNomes;
 
-    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr[*]/td[2]")
+    @FindBy(xpath="//*[@id=\"listaDeUsuarios\"]/tbody/tr[*]/td[3]")
     List<WebElement> listaDeValores;
 
     public ConsumoCsPage(WebDriver driver){
