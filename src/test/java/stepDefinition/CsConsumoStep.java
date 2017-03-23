@@ -5,6 +5,7 @@ import config.Config;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import pageObjects.ConsumoCsPage;
-import pageObjects.ConsumoCsRestAssert;
 import work.assisjrs.seleniumtestcase.SeleniumTestCase;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
@@ -31,29 +31,27 @@ public class CsConsumoStep {
     @Autowired
     private ConsumoCsPage page;
 
-    @Autowired
-    private ConsumoCsRestAssert restAssert;
-
     @Dado("^que esteja na pagina principal$")
-    public void queEuEstejaNaPaginaPrincipalDoSistema() {
-
+    public void queEuEstejaNaPaginaPrincipalDoSistema() throws InterruptedException {
+        Thread.sleep(5000);
     }
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
-    public void euAcessoAPaginaDeUsuario(){
+    public void euAcessoAPaginaDeUsuario() {
         page.home();
     }
 
     @Então("^verifico que o \"([^\"]*)\" e o (\\d+) estão presentes$")
     public void verificoQueOEOEstãoPresentes(String nome, Double valor) throws Throwable {
-        Thread.sleep(1000);
+        Thread.sleep(300);
 
         page.assertThat()
             .userFound(nome);
 
         page.assertThat()
             .valueFound(valor);
-
-        restAssert.assertThat().jsonOk();
     }
+
+    @Test
+    public void test(){}
 }
