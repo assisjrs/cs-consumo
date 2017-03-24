@@ -26,9 +26,8 @@ public class TransacaoController {
     {
         final ZonedDateTime faixaDeData = LocalDate.of(ano, mes, 1).atStartOfDay(ZoneId.systemDefault());
 
-        final Date dataInicio = Date.from(faixaDeData.toInstant());
         final Date dataFim = Date.from(faixaDeData.plusMonths(1).minusDays(1).toInstant());
 
-        return transacaoRepository.find(dataInicio, dataFim);
+        return transacaoRepository.find(dataFim);
     }
 }
