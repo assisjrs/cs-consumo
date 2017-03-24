@@ -34,16 +34,14 @@ public class CsConsumoStep {
     @Autowired
     private ConsumoCsPage page;
 
-    @Autowired
-    private WebDriver driver;
+    //@Autowired
+    //private WebDriver driver;
 
     @Dado("^que esteja na pagina principal$")
-    public void queEuEstejaNaPaginaPrincipalDoSistema() {
-    }
+    public void queEuEstejaNaPaginaPrincipalDoSistema() { }
 
     @Dado("^que o funcionario não possua debitos$")
-    public void queOFuncionarioNãoPossuaDebitos(){
-    }
+    public void queOFuncionarioNãoPossuaDebitos(){ }
 
     @Quando("^eu acesso a pagina de listagem de usuario$")
     public void euAcessoAPaginaDeUsuario() {
@@ -60,7 +58,7 @@ public class CsConsumoStep {
         page.assertThat()
             .valueFound(valor);
 
-        Utils.captureScreenshot(driver, "Pagina home");
+        //Utils.captureScreenshot(driver, "Pagina home");
     }
 
     @Então("^eu verifico que este funcionario não está sendo exibido\\.$")
@@ -69,7 +67,7 @@ public class CsConsumoStep {
         page.assertThat()
             .userNotFound("Francisco");
 
-        Utils.captureScreenshot(driver, "Pagina home");
+        //Utils.captureScreenshot(driver, "Pagina home");
     }
 
     @Test
